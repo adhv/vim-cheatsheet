@@ -236,21 +236,26 @@ Tip To jump to a mark you can either use a backtick (`) or an apostrophe ('). Us
 ```
 ## Working with multiple files
 ```bash
-:e file       # edit a file in a new buffer
-:bnext or :bn # go to the next buffer
-:bprev or :bp # go to the previous buffer
-:bd           # delete a buffer (close a file)
-:ls           # list all open buffers
-:sp file      # open a file in a new buffer and split window
-:vsp file     # open a file in a new buffer and vertically split window
-Ctrl + ws     # split window
-Ctrl + ww     # switch windows
-Ctrl + wq     # quit a window
-Ctrl + wv     # split window vertically
-Ctrl + wh     # move cursor to the left window (vertical split)
-Ctrl + wl     # move cursor to the right window (vertical split)
-Ctrl + wj     # move cursor to the window below (horizontal split)
-Ctrl + wk     # move cursor to the window above (horizontal split)
+:e file              # edit a file in a new buffer
+:bnext or :bn        # go to the next buffer
+:bprev or :bp        # go to the previous buffer
+:bd                  # delete a buffer (close a file)
+:b#                  # go to a buffer by #
+:b file              # go to a buffer by file
+:ls                  # list all open buffers
+:sp file             # open a file in a new buffer and split window
+:vsp file            # open a file in a new buffer and vertically split window
+:vert[ical] ba[ll]   # edit all buffers as vertical windows
+:tab ba[ll]          # edit all buffers as tabs
+Ctrl + ws            # split window
+Ctrl + ww            # switch windows
+Ctrl + wq            # quit a window
+Ctrl + wv            # split window vertically
+Ctrl + wx            # exchange current window with next one
+Ctrl + wh            # move cursor to the left window (vertical split)
+Ctrl + wl            # move cursor to the right window (vertical split)
+Ctrl + wj            # move cursor to the window below (horizontal split)
+Ctrl + wk            # move cursor to the window above (horizontal split)
 ```
 
 ## Tabs
@@ -265,7 +270,28 @@ gT or :tabprev or :tabp # move to the previous tab
 :tabonly or :tabo       # close all tabs except for the current one
 :tabdo command          # run the command on all tabs (e.g. :tabdo q - closes all opened tabs)
 ```
+### Diff
+```bash
+zf               # manually define a fold up to motion
+zd               # delete fold under the cursor
+za               # toggle fold under the cursor
+zo               # open fold under the cursor
+zc               # close fold under the cursor
+zr               # reduce (open) all folds by one level
+zm               # fold more (close) all folds by one level
+zi               # toggle folding functionality
+]c               # jump to start of next change
+[c               # jump to start of previous change
+do or :diffg[et] # obtain (get) difference (from other buffer)
+dp or :diffpu[t] # put difference (to other buffer)
+:diffthis        # make current window part of diff
+:dif[fupdate]    # update differences
+:diffo[ff]       # switch off diff mode for current window
 
+Tip The commands for folding (e.g. za) operate on one level. To operate on all levels, use uppercase letters (e.g. zA).
+
+Tip To view the differences of files, one can directly start Vim in diff mode by running vimdiff in a terminal. One can even set this as git difftool. 
+```
 
 ## .vimrc **work in progress**
 ```bash 
