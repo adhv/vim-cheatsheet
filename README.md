@@ -1,3 +1,8 @@
+## VIM REFERENCE MANUAL  
+ ```bash
+https://vimhelp.org/index.txt.html
+```
+
 ## Global
 ```bash
 :help keyword # open help for keyword
@@ -84,7 +89,6 @@ cw       # change (replace) to the start of the next word
 ce       # change (replace) to the end of the next word
 cb       # change (replace) to the start of the previous word
 c0       # change (replace) to the start of the line
-
 s        # delete character and substitute text
 S        # delete line and substitute text (same as cc)
 xp       # transpose two letters (delete and paste)
@@ -195,7 +199,7 @@ gT or :tabprev or :tabp # move to the previous tab
 ```
 
 
-## .vimrc
+## .vimrc **work in progress**
 ```bash 
 My .vimrc file has some pretty great ideas I haven’t seen elsewhere.
 This is a minimal vimrc that focuses on three priorities:
