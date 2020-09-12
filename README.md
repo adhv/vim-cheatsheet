@@ -1,11 +1,13 @@
-﻿# vim-cheatsheet
-
-Global
+## Global
+```bash
 :help keyword # open help for keyword
 :o file       # open file
 :saveas file  # save file as
 :close        # close current pane
-Cursor movement
+```
+
+## Cursor movement
+```bash
 h        # move cursor left
 j        # move cursor down
 k        # move cursor up
@@ -35,7 +37,9 @@ Ctrl + b # move back one full screen
 Ctrl + f # move forward one full screen
 Ctrl + d # move forward 1/2 a screen
 Ctrl + u # move back 1/2 a screen
-Insert mode - inserting/appending text
+```
+## Insert mode - inserting/appending text
+```bash
 i        # insert before the cursor
 I        # insert at the beginning of the line
 a        # insert (append) after the cursor
@@ -44,7 +48,9 @@ o        # append (open) a new line below the current line
 O        # append (open) a new line above the current line
 ea       # insert (append) at the end of the word
 Esc      # exit insert mode
-Editing
+```
+## Editing
+```bash
 r        # replace a single character
 J        # join line below to the current one
 cc       # change (replace) entire line
@@ -59,7 +65,9 @@ xp       # transpose two letters (delete and paste)
 .        # repeat last command
 u        # undo
 Ctrl + r # redo
-Marking text (visual mode)
+```
+## Marking text (visual mode)
+```bash
 v        # start visual mode, mark lines, then do a command (like y-yank)
 V        # start linewise visual mode
 o        # move to other end of marked area
@@ -71,13 +79,17 @@ ib       # inner block with ()
 iB       # inner block with {}
 Esc      # exit visual mode
 Ctrl + v # start visual block mode
-Visual commands
+```
+## Visual commands
+```bash
 >       # shift text right
 <       # shift text left
 y       # yank (copy) marked text
 d       # delete marked text
 ~       # switch case
-Cut and paste
+```
+## Cut and paste
+```bash
 yy       # yank (copy) a line
 2yy      # yank (copy) 2 lines
 yw       # yank (copy) the characters of the word from the cursor position to the start of the next word
@@ -92,7 +104,9 @@ d$       # delete (cut) to the end of the line
 d^       # delete (cut) to the first non-blank character of the line
 d0       # delete (cut) to the begining of the line
 x        # delete (cut) character
-Search and replace
+```
+## Search and replace
+```bash
 /pattern       # search for pattern
 ?pattern       # search backward for pattern
 \vpattern      # 'very magic' pattern: non-alphanumeric characters are interpreted as special regex symbols (no escaping needed)
@@ -101,18 +115,24 @@ N              # repeat search in opposite direction
 :%s/old/new/g  # replace all old with new throughout file
 :%s/old/new/gc # replace all old with new throughout file with confirmations
 :noh           # remove highlighting of search matches
-Search in multiple files
+```
+## Search in multiple files
+```bash
 :vimgrep /pattern/ {file} # search for pattern in multiple files
 :cn                       # jump to the next match
 :cp                       # jump to the previous match
 :copen                    # open a window containing the list of matches
-Exiting
+```
+## Exiting
+```bash
 :w              # write (save) the file, but don't exit
 :w !sudo tee %  # write out the current file using sudo
 :wq or :x or ZZ # write (save) and quit
 :q              # quit (fails if there are unsaved changes)
 :q! or ZQ       # quit and throw away unsaved changes
-Working with multiple files
+```
+## Working with multiple files
+```bash
 :e file       # edit a file in a new buffer
 :bnext or :bn # go to the next buffer
 :bprev or :bp # go to the previous buffer
@@ -128,7 +148,9 @@ Ctrl + wh     # move cursor to the left window (vertical split)
 Ctrl + wl     # move cursor to the right window (vertical split)
 Ctrl + wj     # move cursor to the window below (horizontal split)
 Ctrl + wk     # move cursor to the window above (horizontal split)
-Tabs
+```
+## Tabs
+```bash
 :tabnew or :tabnew file # open a file in a new tab
 Ctrl + wT               # move the current split window into its own tab
 gt or :tabnext or :tabn # move to the next tab
@@ -138,3 +160,4 @@ gT or :tabprev or :tabp # move to the previous tab
 :tabclose or :tabc      # close the current tab and all its windows
 :tabonly or :tabo       # close all tabs except for the current one
 :tabdo command          # run the command on all tabs (e.g. :tabdo q - closes all opened tabs)
+```
