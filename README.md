@@ -112,7 +112,31 @@ Esc      # exit visual mode
 Ctrl + v # start visual block mode
 
 Tip Instead of b or B one can also use ( or { respectively.
+```
 
+### Registers
+```bash
+:reg[isters] # show registers content
+"xy          # yank into register x
+"xp          # paste contents of register x
+"+y          # yank into the system clipboard register
+"+p          # paste from the system clipboard register
+
+Tip Registers are being stored in ~/.viminfo, and will be loaded again on next restart of vim.
+
+Tip Special registers:
+ 0  # last yank
+ "  # unnamed register, last delete or yank
+ %  # current file name
+ #  # alternate file name
+ *  # clipboard contents (X11 primary)
+ +  # clipboard contents (X11 clipboard)
+ /  # last search pattern
+ :  # last command-line
+ .  # last inserted text
+ -  # last small (less than a line) delete
+ =  # expression register
+ _  # black hole register
 ```
 ## Visual commands
 ```bash
@@ -141,6 +165,20 @@ d^       # delete (cut) to the first non-blank character of the line
 d0       # delete (cut) to the begining of the line
 x        # delete (cut) character
 ```
+
+### Indent text
+```bash 
+>>     # indent (move right) line one shiftwidth
+<<     # de-indent (move left) line one shiftwidth
+>%     # indent a block with () or {} (cursor on brace)
+>ib    # indent inner block with ()
+>at    # indent a block with <> tags
+3==    # re-indent 3 lines
+=%     # re-indent a block with () or {} (cursor on brace)
+=iB    # re-indent inner block with {}
+gg=G   # re-indent entire buffer
+]p     # paste and adjust indent to current line
+```
 ## Search and replace
 ```bash
 /pattern       # search for pattern
@@ -159,6 +197,34 @@ N              # repeat search in opposite direction
 :cp                       # jump to the previous match
 :copen                    # open a window containing the list of matches
 ```
+### Macros
+```bash
+qa    # record macro a
+q     # stop recording macro
+@a    # run macro a
+@@    # rerun last run macro
+```
+
+### Marks and positions
+```bash
+:marks    # list of marks
+ma        # set current position for mark A
+`a        # jump to position of mark A
+y`a       # yank text to position of mark A
+`0        # go to the position where Vim was previously exited
+`"        # go to the position when last editing this file
+`.        # go to the position of the last change in this file
+``        # go to the position before the last jump
+:ju[mps]  # list of jumps
+Ctrl + i  # go to newer position in jump list
+Ctrl + o  # go to older position in jump list
+:changes  # list of changes
+g,        # go to newer position in change list
+g;        # go to older position in change list
+Ctrl + ]  # jump to the tag under cursor
+
+Tip To jump to a mark you can either use a backtick (`) or an apostrophe ('). Using an apostrophe jumps to the beginning (first non-black) of the line holding the mark. 
+```
 ## Exiting
 ```bash
 :w              # write (save) the file, but don't exit
@@ -166,6 +232,7 @@ N              # repeat search in opposite direction
 :wq or :x or ZZ # write (save) and quit
 :q              # quit (fails if there are unsaved changes)
 :q! or ZQ       # quit and throw away unsaved changes
+:wqa            # write (save) and quit on all tabs
 ```
 ## Working with multiple files
 ```bash
@@ -185,6 +252,7 @@ Ctrl + wl     # move cursor to the right window (vertical split)
 Ctrl + wj     # move cursor to the window below (horizontal split)
 Ctrl + wk     # move cursor to the window above (horizontal split)
 ```
+
 ## Tabs
 ```bash
 :tabnew or :tabnew file # open a file in a new tab
