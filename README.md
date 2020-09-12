@@ -46,6 +46,7 @@ Ctrl + b # move back one full screen
 Ctrl + f # move forward one full screen
 Ctrl + d # move forward 1/2 a screen
 Ctrl + u # move back 1/2 a screen
+
 Tip Prefix a cursor movement command with a number to repeat it. For example, 4j moves down 4 lines.
 ```
 ## Insert mode - inserting/appending text
@@ -57,6 +58,13 @@ A        # insert (append) at the end of the line
 o        # append (open) a new line below the current line
 O        # append (open) a new line above the current line
 ea       # insert (append) at the end of the word
+Ctrl + h # delete the character before the cursor during insert mode
+Ctrl + w # delete word before the cursor during insert mode
+Ctrl + j # begin new line during insert mode
+Ctrl + t # indent (move right) line one shiftwidth during insert mode
+Ctrl + d # de-indent (move left) line one shiftwidth during insert mode
+Ctrl + n # insert (auto-complete) next match before the cursor during insert mode
+Ctrl + p # insert (auto-complete) previous match before the cursor during insert mode
 Esc      # exit insert mode
 ```
 ## Editing
