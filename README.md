@@ -106,6 +106,9 @@ ib       # inner block with ()
 iB       # inner block with {}
 Esc      # exit visual mode
 Ctrl + v # start visual block mode
+
+Tip Instead of b or B one can also use ( or { respectively.
+
 ```
 ## Visual commands
 ```bash
